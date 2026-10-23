@@ -1,0 +1,8 @@
+[22/10/2026 23:25:43]
+ERRO: Falha ao consultar usuário
+MENSAGEM: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+
+[22/10/2026 23:26:20]
+ERRO: Falha ao atualizar usuário
+MENSAGEM: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+
