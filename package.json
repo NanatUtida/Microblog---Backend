@@ -1,7 +1,7 @@
 {
-  "name": "microblog-backend",
+  "name": "lanas-blog",
   "version": "1.0.0",
-  "description": "Projeto 1 de Programação Web Back-End - Aplicação de microblogging com Node.js e MongoDB",
+  "description": "Lana's Blog - Projeto 1 de Programação Web Back-End - Aplicação de microblogging com Node.js e MongoDB",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"

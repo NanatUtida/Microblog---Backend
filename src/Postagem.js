@@ -7,7 +7,6 @@ class Postagem {
   constructor(usuarioId, texto) {
     this.usuarioId = usuarioId;
     this.texto = texto;
-    this.curtidas = 0;
     this.dataCriacao = new Date();
   }
 
@@ -100,6 +99,8 @@ class Postagem {
 
   static async excluir(db, id) {
     try {
+      await db.collection('comentarios').deleteMany({ postagemId: id });
+
       const resultado = await db.collection(COLECAO).deleteOne({ _id: new ObjectId(id) });
 
       if (resultado.deletedCount === 0) {

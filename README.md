@@ -1,10 +1,10 @@
-# Microblog - Backend
+# Lana's Blog
 
 Projeto 1 da disciplina de Programação Web Back-End.
 
 ## Temática escolhida
 
-Microblogging — aplicação para cadastro de usuários, criação e busca de postagens, e publicação de comentários, inspirada em plataformas de microblogging.
+Microblogging — **Lana's Blog** é uma aplicação para cadastro de usuários, criação e busca de postagens, e publicação de comentários, inspirada em plataformas de microblogging.
 
 ## Integrantes da equipe
 
@@ -13,12 +13,12 @@ Microblogging — aplicação para cadastro de usuários, criação e busca de p
 
 ## Descrição da aplicação
 
-Aplicação de linha de comando (console) em Node.js que permite cadastrar usuários, criar e consultar postagens, buscar postagens por texto, comentar em postagens, além de atualizar e excluir os registros. Toda a persistência dos dados é feita em um banco de dados MongoDB, utilizando o MongoDB Driver nativo para Node.js (sem uso de ORMs como Mongoose).
+**Lana's Blog** é uma aplicação de linha de comando (console) em Node.js que permite cadastrar usuários, criar e consultar postagens, buscar postagens por texto, comentar em postagens, além de atualizar e excluir os registros. Toda a persistência dos dados é feita em um banco de dados MongoDB, utilizando o MongoDB Driver nativo para Node.js (sem uso de ORMs como Mongoose).
 
 ## Entidades / Classes implementadas
 
 - **Usuario** (`src/Usuario.js`): representa os usuários cadastrados na plataforma. Campos: `nome` (obrigatório), `email` (obrigatório), `dataCriacao`.
-- **Postagem** (`src/Postagem.js`): representa as postagens publicadas por um usuário. Campos: `usuarioId` (obrigatório, referencia um `Usuario`), `texto` (obrigatório), `curtidas`, `dataCriacao`.
+- **Postagem** (`src/Postagem.js`): representa as postagens publicadas por um usuário. Campos: `usuarioId` (obrigatório, referencia um `Usuario`), `texto` (obrigatório), `dataCriacao`.
 - **Comentario** (`src/Comentario.js`): representa os comentários feitos em uma postagem. Campos: `postagemId` (obrigatório, referencia uma `Postagem`), `usuarioId` (obrigatório, referencia um `Usuario`), `texto` (obrigatório), `dataCriacao`.
 
 Cada classe concentra os métodos de inserção, consulta, atualização e exclusão (CRUD) da sua respectiva coleção no MongoDB.
@@ -71,7 +71,7 @@ Com o MongoDB em execução, inicie a aplicação com:
 npm start
 ```
 
-O menu interativo será exibido no terminal, permitindo navegar entre as opções de usuários, postagens e comentários.
+O menu interativo do **Lana's Blog** será exibido no terminal, permitindo navegar entre as opções de usuários, postagens e comentários.
 
 ## Estrutura do projeto
 

@@ -1,0 +1,140 @@
+[24/10/2026 12:20:57]
+ERRO: Falha ao consultar usuário
+MENSAGEM: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+
+[24/10/2026 12:21:26]
+ERRO: Falha ao consultar usuário
+MENSAGEM: Usuário não encontrado
+
+[24/10/2026 12:24:25]
+ERRO: Falha ao consultar postagem
+MENSAGEM: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+
+[24/10/2026 12:27:44]
+ERRO: Falha ao atualizar comentário
+MENSAGEM: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+
+[24/10/2026 12:27:55]
+ERRO: Falha ao atualizar comentário
+MENSAGEM: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+
+[24/10/2026 12:28:09]
+ERRO: Falha ao atualizar comentário
+MENSAGEM: Comentário não encontrado
+
+[24/10/2026 12:29:27]
+ERRO: Falha ao excluir comentário
+MENSAGEM: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+
+[24/10/2026 12:30:01]
+ERRO: Falha ao excluir comentário
+MENSAGEM: Comentário não encontrado
+
+[24/10/2026 14:03:47]
+ERRO: Falha ao atualizar postagem
+MENSAGEM: Informe o campo "texto" para atualização
+
+[24/10/2026 14:08:57]
+ERRO: Falha ao atualizar usuário
+MENSAGEM: Informe ao menos um campo para atualização ("nome" ou "email")
+
+[24/10/2026 14:38:29]
+ERRO: Falha ao inserir usuário
+MENSAGEM: Já existe um usuário cadastrado com esse email
+
+[24/10/2026 14:40:14]
+ERRO: Falha ao consultar usuário
+MENSAGEM: Usuário não encontrado
+
+[24/10/2026 14:40:25]
+ERRO: Falha ao consultar usuário
+MENSAGEM: Usuário não encontrado
+
+[24/10/2026 14:46:11]
+ERRO: Falha ao consultar usuário
+MENSAGEM: Usuário não encontrado
+
+[24/10/2026 14:46:19]
+ERRO: Falha ao consultar usuário
+MENSAGEM: Usuário não encontrado
+
+[24/10/2026 14:56:26]
+ERRO: Falha ao inserir usuário
+MENSAGEM: Já existe um usuário cadastrado com esse email
+
+[24/10/2026 14:57:14]
+ERRO: Falha ao consultar usuário
+MENSAGEM: Usuário não encontrado
+
+[24/10/2026 14:57:24]
+ERRO: Falha ao consultar usuário
+MENSAGEM: Usuário não encontrado
+
+[24/10/2026 14:57:50]
+ERRO: Falha ao consultar usuário
+MENSAGEM: Usuário não encontrado
+
+[24/10/2026 15:21:34]
+ERRO: Falha ao inserir usuário
+MENSAGEM: O campo "email" deve conter um email válido (ex: nome@dominio.com)
+
+[24/10/2026 15:28:38]
+ERRO: Falha ao inserir usuário
+MENSAGEM: O campo "email" deve conter um email válido (ex: nome@dominio.com)
+
+[24/10/2026 15:34:27]
+ERRO: Falha ao inserir usuário
+MENSAGEM: Já existe um usuário cadastrado com esse email
+
+[24/10/2026 15:34:57]
+ERRO: Falha ao selecionar o usuário
+MENSAGEM: Opção inválida
+
+[24/10/2026 15:35:06]
+ERRO: Falha ao selecionar o usuário
+MENSAGEM: Opção inválida
+
+[24/10/2026 15:36:00]
+ERRO: Falha ao selecionar o usuário
+MENSAGEM: Opção inválida
+
+[24/10/2026 15:36:57]
+ERRO: Falha ao selecionar a postagem
+MENSAGEM: Opção inválida
+
+[24/10/2026 15:37:03]
+ERRO: Falha ao selecionar a postagem
+MENSAGEM: Opção inválida
+
+[24/10/2026 15:37:06]
+ERRO: Falha ao selecionar a postagem
+MENSAGEM: Opção inválida
+
+[24/10/2026 15:37:12]
+ERRO: Falha ao selecionar a postagem
+MENSAGEM: Opção inválida
+
+[24/10/2026 15:38:27]
+ERRO: Falha ao selecionar a postagem
+MENSAGEM: Opção inválida
+
+[24/10/2026 15:38:32]
+ERRO: Falha ao selecionar o comentário
+MENSAGEM: Opção inválida
+
+[24/10/2026 15:39:32]
+ERRO: Falha ao selecionar a postagem
+MENSAGEM: Opção inválida
+
+[24/10/2026 15:39:41]
+ERRO: Falha ao selecionar o comentário
+MENSAGEM: Opção inválida
+
+[24/10/2026 15:39:55]
+ERRO: Falha ao selecionar a postagem
+MENSAGEM: Opção inválida
+
+[24/10/2026 15:40:14]
+ERRO: Falha ao selecionar o usuário
+MENSAGEM: Opção inválida
+
