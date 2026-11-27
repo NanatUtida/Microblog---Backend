@@ -1,10 +1,10 @@
 # Lana's Blog
 
-Projeto 2 da disciplina de Programação Web Back-End — evolução do Projeto 1, agora disponibilizado como uma API Web com Express.js.
+Projeto 2 da disciplina de Programação Web Back-End, evolução do Projeto 1, agora disponibilizado como uma API Web com Express.js.
 
 ## Temática escolhida
 
-Microblogging — **Lana's Blog** é uma aplicação para cadastro de usuários, criação e busca de postagens, e publicação de comentários, inspirada em plataformas de microblogging.
+Microblogging - **Lana's Blog** é uma aplicação para cadastro de usuários, criação e busca de postagens, e publicação de comentários, inspirada em plataformas de microblogging.
 
 ## Integrantes da equipe
 
@@ -80,16 +80,16 @@ Microblog---Backend/
 
 - [Node.js](https://nodejs.org/) (versão 18 ou superior recomendada).
 - [MongoDB](https://www.mongodb.com/try/download/community) instalado e em execução localmente (padrão: `mongodb://127.0.0.1:27017`).
-- Uma ferramenta para testar requisições HTTP, como [Postman](https://www.postman.com/downloads/), [Insomnia](https://insomnia.rest/download) ou `curl`.
+- Uma ferramenta para testar requisições HTTP, como [Postman](https://www.postman.com/downloads/).
 
 ## Dependências
 
 Declaradas no `package.json`:
 
-- **express** — framework Web usado para criar o servidor e as rotas.
-- **express-session** — gerenciamento de sessão (login/autenticação).
-- **mongodb** — MongoDB Driver nativo, usado para acessar o banco de dados.
-- **nodemon** (apenas desenvolvimento) — reinicia o servidor automaticamente a cada alteração de arquivo.
+- **express** - framework Web usado para criar o servidor e as rotas.
+- **express-session** - gerenciamento de sessão (login/autenticação).
+- **mongodb** - MongoDB Driver nativo, usado para acessar o banco de dados.
+- **nodemon** (apenas desenvolvimento) - reinicia o servidor automaticamente a cada alteração de arquivo.
 
 ## Instalação das dependências
 
@@ -132,29 +132,29 @@ Por padrão, o servidor roda em `http://localhost:3000` (pode ser alterado com a
 | Método | Rota | Protegida? | Descrição |
 |---|---|---|---|
 | GET | `/` | Não | Mensagem de status da API |
-| POST | `/usuarios` | Não | Cadastrar usuário — body: `{ nome, email, senha }` |
+| POST | `/usuarios` | Não | Cadastrar usuário - body: `{ nome, email, senha }` |
 | GET | `/usuarios` | Não | Listar usuários |
 | GET | `/usuarios/:id` | Não | Buscar um usuário por ID |
-| POST | `/usuarios/atualizar` | Sim (só o próprio) | Atualizar usuário — body: `{ id, nome, email }` |
-| POST | `/usuarios/excluir` | Sim (só o próprio) | Excluir usuário (e seus dados, em cascata) — body: `{ id }` |
-| POST | `/auth/login` | Não | Login — body: `{ email, senha }` |
+| POST | `/usuarios/atualizar` | Sim (só o próprio) | Atualizar usuário - body: `{ id, nome, email }` |
+| POST | `/usuarios/excluir` | Sim (só o próprio) | Excluir usuário (e seus dados, em cascata) - body: `{ id }` |
+| POST | `/auth/login` | Não | Login - body: `{ email, senha }` |
 | POST | `/auth/logout` | Não | Encerra a sessão |
 | GET | `/auth/me` | Sim | Retorna o usuário autenticado na sessão atual |
 | GET | `/postagens` | Não | Listar postagens. Com `?busca=termo`, filtra por texto |
 | GET | `/postagens/:id` | Não | Buscar uma postagem por ID |
-| POST | `/postagens` | Sim | Criar postagem — body: `{ texto }` (o autor é o usuário logado) |
+| POST | `/postagens` | Sim | Criar postagem - body: `{ texto }` (o autor é o usuário logado) |
 | POST | `/postagens/atualizar` | Sim (só o autor) | Atualizar postagem — body: `{ id, texto }` |
-| POST | `/postagens/excluir` | Sim (só o autor) | Excluir postagem (e seus comentários, em cascata) — body: `{ id }` |
+| POST | `/postagens/excluir` | Sim (só o autor) | Excluir postagem (e seus comentários, em cascata) - body: `{ id }` |
 | GET | `/comentarios?postagemId=...` | Não | Listar comentários de uma postagem |
-| POST | `/comentarios` | Sim | Criar comentário — body: `{ postagemId, texto }` |
-| POST | `/comentarios/atualizar` | Sim (só o autor) | Atualizar comentário — body: `{ id, texto }` |
-| POST | `/comentarios/excluir` | Sim (só o autor) | Excluir comentário — body: `{ id }` |
+| POST | `/comentarios` | Sim | Criar comentário - body: `{ postagemId, texto }` |
+| POST | `/comentarios/atualizar` | Sim (só o autor) | Atualizar comentário - body: `{ id, texto }` |
+| POST | `/comentarios/excluir` | Sim (só o autor) | Excluir comentário - body: `{ id }` |
 
-"Protegida" significa que a rota exige uma sessão de login ativa (ver seção abaixo). "Só o autor"/"só o próprio" significa que, além de estar logado, só o usuário que criou o registro pode alterá-lo ou excluí-lo — tentar fazer isso com outro usuário retorna erro `403`.
+"Protegida" significa que a rota exige uma sessão de login ativa (ver seção abaixo). "Só o autor"/"só o próprio" significa que, além de estar logado, só o usuário que criou o registro pode alterá-lo ou excluí-lo - tentar fazer isso com outro usuário retorna erro `403`.
 
 ## Como testar o login e as rotas protegidas
 
-As rotas usam **sessão baseada em cookie**. Ao testar no Postman/Insomnia, deixe o gerenciamento de cookies ativado (é o padrão dessas ferramentas) para que o cookie de sessão recebido no login seja reenviado automaticamente nas próximas requisições.
+As rotas usam **sessão baseada em cookie**. Ao testar no Postman, deixe o gerenciamento de cookies ativado (é o padrão dessas ferramentas) para que o cookie de sessão recebido no login seja reenviado automaticamente nas próximas requisições.
 
 1. **Cadastre um usuário**:
    ```
@@ -177,7 +177,7 @@ As rotas usam **sessão baseada em cookie**. Ao testar no Postman/Insomnia, deix
    GET http://localhost:3000/auth/me
    ```
 
-4. **Use uma rota protegida** (ex: criar postagem) — funciona porque o cookie de sessão foi enviado automaticamente:
+4. **Use uma rota protegida** (ex: criar postagem) - funciona porque o cookie de sessão foi enviado automaticamente:
    ```
    POST http://localhost:3000/postagens
    Content-Type: application/json
@@ -185,9 +185,9 @@ As rotas usam **sessão baseada em cookie**. Ao testar no Postman/Insomnia, deix
    { "texto": "Minha primeira postagem!" }
    ```
 
-5. **Teste o bloqueio**: faça logout (`POST /auth/logout`) e repita o passo 4 — a resposta deve ser `401` com `{ "erro": "É necessário estar logado para realizar esta operação" }`.
+5. **Teste o bloqueio**: faça logout (`POST /auth/logout`) e repita o passo 4 - a resposta deve ser `401` com `{ "erro": "É necessário estar logado para realizar esta operação" }`.
 
-6. **Teste a posse**: cadastre e logue com um segundo usuário, e tente atualizar/excluir a postagem criada pelo primeiro usuário — a resposta deve ser `403`.
+6. **Teste a posse**: cadastre e logue com um segundo usuário, e tente atualizar/excluir a postagem criada pelo primeiro usuário - a resposta deve ser `403`.
 
 ### Testando com `curl`
 
