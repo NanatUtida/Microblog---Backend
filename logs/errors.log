@@ -138,3 +138,119 @@ MENSAGEM: Opção inválida
 ERRO: Falha ao selecionar o usuário
 MENSAGEM: Opção inválida
 
+[24/11/2026 22:10:28]
+ERRO: Falha ao autenticar usuário
+MENSAGEM: Email ou senha incorretos
+
+[24/11/2026 22:10:28]
+ERRO: Falha ao inserir usuário
+MENSAGEM: O campo "senha" é obrigatório e deve ter ao menos 4 caracteres
+
+[26/11/2026 21:59:47]
+ERRO: Falha ao inserir usuário
+MENSAGEM: O campo "senha" é obrigatório e deve ter ao menos 4 caracteres
+
+[26/11/2026 22:00:06]
+ERRO: Falha ao inserir usuário
+MENSAGEM: O campo "email" deve conter um email válido (ex: nome@dominio.com)
+
+[26/11/2026 22:01:01]
+ERRO: Falha ao inserir usuário
+MENSAGEM: Já existe um usuário cadastrado com esse email
+
+[26/11/2026 22:02:39]
+ERRO: Falha ao consultar usuário
+MENSAGEM: Identificador inválido
+
+[26/11/2026 22:02:51]
+ERRO: Falha ao consultar usuário
+MENSAGEM: Identificador inválido
+
+[26/11/2026 22:03:13]
+ERRO: Falha ao consultar usuário
+MENSAGEM: Identificador inválido
+
+[26/11/2026 22:04:42]
+ERRO: Falha ao consultar usuário
+MENSAGEM: Usuário não encontrado
+
+[26/11/2026 22:05:32]
+ERRO: Falha ao autenticar usuário
+MENSAGEM: Os campos "email" e "senha" são obrigatórios
+
+[26/11/2026 22:05:50]
+ERRO: Falha ao autenticar usuário
+MENSAGEM: Email ou senha incorretos
+
+[26/11/2026 22:06:10]
+ERRO: Falha ao autenticar usuário
+MENSAGEM: Os campos "email" e "senha" são obrigatórios
+
+[26/11/2026 22:06:24]
+ERRO: Falha ao autenticar usuário
+MENSAGEM: Email ou senha incorretos
+
+[26/11/2026 22:11:11]
+ERRO: Falha ao acessar POST /postagens
+MENSAGEM: Tentativa de acesso sem autenticação
+
+[26/11/2026 22:17:28]
+ERRO: Falha ao inserir usuário
+MENSAGEM: O campo "senha" é obrigatório e deve ter ao menos 4 caracteres
+
+[26/11/2026 22:17:34]
+ERRO: Falha ao inserir usuário
+MENSAGEM: O campo "email" deve conter um email válido (ex: nome@dominio.com)
+
+[26/11/2026 22:17:38]
+ERRO: Falha ao inserir usuário
+MENSAGEM: Já existe um usuário cadastrado com esse email
+
+[26/11/2026 22:17:44]
+ERRO: Falha ao inserir usuário
+MENSAGEM: Já existe um usuário cadastrado com esse email
+
+[26/11/2026 22:18:32]
+ERRO: Falha ao autenticar usuário
+MENSAGEM: Email ou senha incorretos
+
+[26/11/2026 22:19:10]
+ERRO: Falha ao acessar POST /postagens
+MENSAGEM: Tentativa de acesso sem autenticação
+
+[26/11/2026 22:19:30]
+ERRO: Falha ao consultar postagem
+MENSAGEM: Identificador inválido
+
+[26/11/2026 22:19:34]
+ERRO: Falha ao consultar postagem
+MENSAGEM: Identificador inválido
+
+[26/11/2026 22:24:34]
+ERRO: Falha ao consultar postagem
+MENSAGEM: Identificador inválido
+
+[26/11/2026 22:25:07]
+ERRO: Falha ao consultar postagem
+MENSAGEM: Identificador inválido
+
+[26/11/2026 22:31:16]
+ERRO: Falha ao autenticar usuário
+MENSAGEM: Email ou senha incorretos
+
+[26/11/2026 22:36:30]
+ERRO: Falha ao consultar postagem
+MENSAGEM: Identificador inválido
+
+[26/11/2026 22:36:48]
+ERRO: Falha ao consultar postagem
+MENSAGEM: Postagem não encontrada
+
+[26/11/2026 22:42:01]
+ERRO: Falha ao autenticar usuário
+MENSAGEM: Email ou senha incorretos
+
+[26/11/2026 22:45:28]
+ERRO: Falha ao consultar comentário
+MENSAGEM: Comentário não encontrado
+

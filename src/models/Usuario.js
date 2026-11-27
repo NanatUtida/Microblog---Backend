@@ -1,20 +1,39 @@
-const { ObjectId } = require('mongodb');
-const { registrarErro } = require('./logger');
+const { paraObjectId } = require('../utils/objectId');
+const crypto = require('crypto');
+const { registrarErro } = require('../logger');
 const Postagem = require('./Postagem');
 
 const COLECAO = 'usuarios';
 const REGEX_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+function gerarHashSenha(senha) {
+  const salt = crypto.randomBytes(16).toString('hex');
+  const hash = crypto.scryptSync(senha, salt, 64).toString('hex');
+  return `${salt}:${hash}`;
+}
+
+function senhaCorresponde(senha, senhaHashArmazenada) {
+  const [salt, hashArmazenado] = senhaHashArmazenada.split(':');
+  const hashCalculado = crypto.scryptSync(senha, salt, 64);
+  const bufferArmazenado = Buffer.from(hashArmazenado, 'hex');
+
+  return (
+    hashCalculado.length === bufferArmazenado.length &&
+    crypto.timingSafeEqual(hashCalculado, bufferArmazenado)
+  );
+}
+
 class Usuario {
-  constructor(nome, email) {
+  constructor(nome, email, senhaHash) {
     this.nome = nome;
     this.email = email;
+    this.senhaHash = senhaHash;
     this.dataCriacao = new Date();
   }
 
   validar() {
-    if (!this.nome || !this.email) {
-      throw new Error('Os campos "nome" e "email" são obrigatórios');
+    if (!this.nome || !this.email || !this.senhaHash) {
+      throw new Error('Os campos "nome", "email" e "senha" são obrigatórios');
     }
 
     if (!REGEX_EMAIL.test(this.email)) {
@@ -22,9 +41,18 @@ class Usuario {
     }
   }
 
-  static async inserir(db, nome, email) {
+  static semSenha(usuario) {
+    const { senhaHash, ...dadosPublicos } = usuario;
+    return dadosPublicos;
+  }
+
+  static async inserir(db, nome, email, senha) {
     try {
-      const usuario = new Usuario(nome, email);
+      if (!senha || senha.length < 4) {
+        throw new Error('O campo "senha" é obrigatório e deve ter ao menos 4 caracteres');
+      }
+
+      const usuario = new Usuario(nome, email, gerarHashSenha(senha));
       usuario.validar();
 
       const emailExistente = await db.collection(COLECAO).findOne({ email: usuario.email });
@@ -40,6 +68,25 @@ class Usuario {
     }
   }
 
+  static async autenticar(db, email, senha) {
+    try {
+      if (!email || !senha) {
+        throw new Error('Os campos "email" e "senha" são obrigatórios');
+      }
+
+      const usuario = await db.collection(COLECAO).findOne({ email });
+
+      if (!usuario || !senhaCorresponde(senha, usuario.senhaHash)) {
+        throw new Error('Email ou senha incorretos');
+      }
+
+      return usuario;
+    } catch (erro) {
+      registrarErro('autenticar usuário', erro);
+      throw erro;
+    }
+  }
+
   static async buscarTodos(db) {
     try {
       return await db.collection(COLECAO).find().toArray();
@@ -51,7 +98,7 @@ class Usuario {
 
   static async buscarPorId(db, id) {
     try {
-      const usuario = await db.collection(COLECAO).findOne({ _id: new ObjectId(id) });
+      const usuario = await db.collection(COLECAO).findOne({ _id: paraObjectId(id) });
       if (!usuario) {
         throw new Error('Usuário não encontrado');
       }
@@ -75,7 +122,7 @@ class Usuario {
 
         const emailExistente = await db.collection(COLECAO).findOne({
           email: dadosAtualizados.email,
-          _id: { $ne: new ObjectId(id) },
+          _id: { $ne: paraObjectId(id) },
         });
         if (emailExistente) {
           throw new Error('Já existe um usuário cadastrado com esse email');
@@ -83,7 +130,7 @@ class Usuario {
       }
 
       const resultado = await db.collection(COLECAO).updateOne(
-        { _id: new ObjectId(id) },
+        { _id: paraObjectId(id) },
         { $set: dadosAtualizados }
       );
 
@@ -107,7 +154,7 @@ class Usuario {
 
       await db.collection('comentarios').deleteMany({ usuarioId: id });
 
-      const resultado = await db.collection(COLECAO).deleteOne({ _id: new ObjectId(id) });
+      const resultado = await db.collection(COLECAO).deleteOne({ _id: paraObjectId(id) });
 
       if (resultado.deletedCount === 0) {
         throw new Error('Usuário não encontrado');

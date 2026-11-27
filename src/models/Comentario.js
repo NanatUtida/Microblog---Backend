@@ -1,5 +1,5 @@
-const { ObjectId } = require('mongodb');
-const { registrarErro } = require('./logger');
+const { paraObjectId } = require('../utils/objectId');
+const { registrarErro } = require('../logger');
 
 const COLECAO = 'comentarios';
 
@@ -21,7 +21,7 @@ class Comentario {
     try {
       const postagemExiste = await db
         .collection('postagens')
-        .findOne({ _id: new ObjectId(postagemId) });
+        .findOne({ _id: paraObjectId(postagemId) });
 
       if (!postagemExiste) {
         throw new Error('Postagem informada não existe');
@@ -53,7 +53,7 @@ class Comentario {
 
   static async buscarPorId(db, id) {
     try {
-      const comentario = await db.collection(COLECAO).findOne({ _id: new ObjectId(id) });
+      const comentario = await db.collection(COLECAO).findOne({ _id: paraObjectId(id) });
       if (!comentario) {
         throw new Error('Comentário não encontrado');
       }
@@ -71,7 +71,7 @@ class Comentario {
       }
 
       const resultado = await db.collection(COLECAO).updateOne(
-        { _id: new ObjectId(id) },
+        { _id: paraObjectId(id) },
         { $set: dadosAtualizados }
       );
 
@@ -88,7 +88,7 @@ class Comentario {
 
   static async excluir(db, id) {
     try {
-      const resultado = await db.collection(COLECAO).deleteOne({ _id: new ObjectId(id) });
+      const resultado = await db.collection(COLECAO).deleteOne({ _id: paraObjectId(id) });
 
       if (resultado.deletedCount === 0) {
         throw new Error('Comentário não encontrado');

@@ -1,12 +1,18 @@
 {
   "name": "lanas-blog",
-  "version": "1.0.0",
-  "description": "Lana's Blog - Projeto 1 de Programação Web Back-End - Aplicação de microblogging com Node.js e MongoDB",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Lana's Blog - Projeto 2 de Programação Web Back-End - Aplicação de microblogging com Node.js, Express.js e MongoDB",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "dependencies": {
+    "express": "^4.21.0",
+    "express-session": "^1.18.0",
     "mongodb": "^6.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }

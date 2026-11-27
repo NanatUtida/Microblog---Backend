@@ -1,5 +1,5 @@
-const { ObjectId } = require('mongodb');
-const { registrarErro } = require('./logger');
+const { paraObjectId } = require('../utils/objectId');
+const { registrarErro } = require('../logger');
 
 const COLECAO = 'postagens';
 
@@ -20,7 +20,7 @@ class Postagem {
     try {
       const usuarioExiste = await db
         .collection('usuarios')
-        .findOne({ _id: new ObjectId(usuarioId) });
+        .findOne({ _id: paraObjectId(usuarioId) });
 
       if (!usuarioExiste) {
         throw new Error('Usuário informado não existe');
@@ -48,7 +48,7 @@ class Postagem {
 
   static async buscarPorId(db, id) {
     try {
-      const postagem = await db.collection(COLECAO).findOne({ _id: new ObjectId(id) });
+      const postagem = await db.collection(COLECAO).findOne({ _id: paraObjectId(id) });
       if (!postagem) {
         throw new Error('Postagem não encontrada');
       }
@@ -82,7 +82,7 @@ class Postagem {
       }
 
       const resultado = await db.collection(COLECAO).updateOne(
-        { _id: new ObjectId(id) },
+        { _id: paraObjectId(id) },
         { $set: dadosAtualizados }
       );
 
@@ -101,7 +101,7 @@ class Postagem {
     try {
       await db.collection('comentarios').deleteMany({ postagemId: id });
 
-      const resultado = await db.collection(COLECAO).deleteOne({ _id: new ObjectId(id) });
+      const resultado = await db.collection(COLECAO).deleteOne({ _id: paraObjectId(id) });
 
       if (resultado.deletedCount === 0) {
         throw new Error('Postagem não encontrada');
